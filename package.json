@@ -9,14 +9,17 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.6.8",
     "classname": "^0.0.0",
     "classnames": "^2.5.1",
+    "icons": "^1.0.0",
     "leaflet": "^1.9.4",
     "primereact": "^10.6.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-leaflet": "^4.2.1",
     "react-scripts": "5.0.1",
+    "tailwind-scrollbar-hide": "^1.1.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
