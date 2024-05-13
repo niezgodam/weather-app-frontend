@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Service {
   constructor() {
-    this.domain = process.env.BACKEND_API_URL;
+    this.domain = "https://weather-app-backend-augf.onrender.com/api/";
   }
 
   async get(latitude, longitude) {
