@@ -2,7 +2,7 @@ import axios from "axios";
 
 class Service {
   constructor() {
-    this.domain = "http://127.0.0.1:8000/api/";
+    this.domain = process.env.BACKEND_API_URL;;
   }
 
   async get(latitude, longitude) {
