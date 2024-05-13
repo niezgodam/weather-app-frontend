@@ -39,7 +39,7 @@ const Map = () => {
             </MapContainer>
           </div>
           <div className="flex">
-            <button className="p-2 my-8 text-2xl font-semibold tracking-wider bg-blue-500 rounded-full maxtext-white hover:bg-blue-700 w-[400px] sm:w-full mx-auto text-white" onClick={handleMapAppear}>
+            <button className="p-2 my-8 text-2xl font-semibold tracking-wider bg-blue-500 rounded-full  hover:bg-blue-700 w-[400px] sm:w-full mx-auto text-white" onClick={handleMapAppear}>
               SEARCH
             </button>
           </div>
