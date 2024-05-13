@@ -29,7 +29,7 @@ const Map = () => {
     isMapVisible && (
       <div className="absolute z-10 flex items-center justify-center w-screen h-screen bg-black/70">
         <div className="block">
-          <div className="flex items-center justify-end text-4xl  mb-[50px] text-white">
+          <div className="flex items-center justify-end text-4xl mb-[50px] text-white mr-[50px] sm:mr-0">
             <IoMdClose className="cursor-pointer hover:scale-150 " onClick={() => setIsMapVisible(false)} />
           </div>
           <div className="items-center justify-center block map">
@@ -39,7 +39,7 @@ const Map = () => {
             </MapContainer>
           </div>
           <div className="flex">
-            <button className="w-full p-2 my-8 text-2xl font-semibold tracking-wider text-white bg-blue-500 rounded-full hover:bg-blue-700" onClick={handleMapAppear}>
+            <button className="w-full p-2 my-8 text-2xl font-semibold tracking-wider bg-blue-500 rounded-full maxtext-white hover:bg-blue-700 max-w-[400px] sm:w-full mx-auto text-white" onClick={handleMapAppear}>
               SEARCH
             </button>
           </div>

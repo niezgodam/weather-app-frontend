@@ -27,7 +27,7 @@ const DraggableMarker = ({ onPositionChange }) => {
 
   return (
     <Marker position={markerPosition} draggable={false} eventHandlers={{ click: () => map.flyTo(markerPosition, map.getZoom()) }} icon={legalIcon}>
-      <Popup>Marker position: {markerPosition[0]} xD: {markerPosition[1]}</Popup>
+      <Popup>Latitude: {Number.parseFloat(markerPosition[0]).toFixed(3)} | Longitude: {Number.parseFloat(markerPosition[1]).toFixed(3)}</Popup>
     </Marker>
   );
 };

@@ -62,6 +62,7 @@ const Navbar = () => {
         setLatitude(searchLatitude);
         setLongitude(searchLongitude);
         setIsLoading(false);
+        console.log(nav);
       } else {
         setAlertInformation("Latitude must be within the range of -90 to 90, and Longitude must be within the range of -180 to 180");
       }
@@ -72,6 +73,8 @@ const Navbar = () => {
 
   const handleMap = () => {
     setIsMapVisible(true);
+    setNav(true);
+    console.log(nav);
   };
 
   const handleNavbar = () => {
@@ -97,14 +100,16 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="w-full items-center flex bg-white/35 dark:bg-white/15 h-[50px] max-h-[80px] min-h-[70px]">
+      <div className="w-full  flex bg-white/35 dark:bg-white/15 h-[50px] max-h-[80px] min-h-[70px] items-center">
         <AiOutlineMenu className="flex items-center self-center ml-4 cursor-pointer lg:hidden dark:text-white" size={24} onClick={handleNavbar} />
-        <h1 className=" items-center justify-center ml-[2%] dark:text-3xl text-3xl font-bold dark:text-white dark:text-shadow-md lg:flex lg:visible hidden">WeatherApp</h1>
+        <h1 className=" items-center justify-center ml-[2%] mr-[2%] dark:text-3xl text-3xl font-bold dark:text-white dark:text-shadow-md lg:flex lg:visible hidden">WeatherApp</h1>
         <div className="flex items-center pl-4 pr-4">
-          <h1 className="items-center hidden font-semibold lg:flex lg:visible dark:text-white">Latitude</h1>
-          <input className="hidden pl-4 m-2 rounded-full outline-none bg-white/35 lg:flex lg:visible" value={searchLatitude} onChange={handleLatitudeChange}></input>
-          <h1 className="items-center hidden font-semibold lg:flex lg:visible dark:text-white">Longitude</h1>
-          <input className="hidden pl-4 m-2 rounded-full outline-none bg-white/35 lg:flex lg:visible" value={searchLongitude} onChange={handleLongitudeChange}></input>
+          <div className="hidden pb-1 pl-2 m-2 border-b-2 border-black outline-none dark:border-white roundred-full lg:flex lg:visible">
+            <input className='font-bold text-black outline-none dark:text-white bg-white/0' value={searchLatitude} onChange={handleLatitudeChange} placeholder="Latitude..."></input>
+          </div>
+          <div className="hidden pb-1 pl-2 m-2 border-b-2 border-black outline-none dark:border-white roundred-full lg:flex lg:visible">
+            <input className='font-bold text-black outline-none dark:text-white bg-white/0' value={searchLongitude} onChange={handleLongitudeChange} placeholder="Longitude..."></input>
+          </div>    
           <div className="items-center hidden p-2 font-extrabold cursor-pointer lg:flex lg:visible dark:text-white" onClick={handleSearch}>
             <RiSearchLine size={24} />
           </div>
@@ -118,10 +123,14 @@ const Navbar = () => {
           )}
         </div>
         <div className="flex ml-auto  md:mr-[5%] rounded-full max-h-[50px] min-w-[200px] justify-around">
-          <div className="items-center hidden py-2 duration-300 ease-in-out border-black cursor-pointer dark:border-white lg:flex lg:visible dark:text-white hover:border-b-4 hover:scale-125" onClick={fetchCurrentPosition}>
+          <div className="items-center py-2 duration-300 ease-in-out border-black cursor-pointer dark:border-white dark:text-white hover:border-b-4 hover:scale-125" 
+          onClick={() => {
+            fetchCurrentPosition();
+            setNav(true);
+            }}>
             <RiMapPin2Fill size={36} />
           </div>
-          <div className="hidden py-2 duration-300 ease-in-out border-black cursor-pointer lg:flex lg:visible dark:text-white hover:border-b-4 hover:scale-125 dark:border-white" onClick={handleMap}>
+          <div className="py-2 duration-300 ease-in-out border-black cursor-pointer dark:text-white hover:border-b-4 hover:scale-125 dark:border-white" onClick={handleMap}>
             <FaMap size={36} />
           </div>
           <div className="flex py-2 duration-300 ease-in-out border-black hover:border-b-4 hover:scale-125 dark:border-white">{theme !== "dark" ? <MdDarkMode className="flex cursor-pointer " onClick={handleThemeSwitch} size={36} /> : <MdLightMode className="flex cursor-pointer" onClick={handleThemeSwitch} size={36} fill="white" />}</div>
@@ -133,15 +142,17 @@ const Navbar = () => {
         <div className="flex w-full mb-[200px] pt-2"></div>
         <div>
           <ul className="block">
-            <li className="px-12 py-4 text-2xl font-bold text-white border-b-2 border-gray-400">
-              <h1 className="items-center font-semibold text-white">Latitude</h1>
-              <input className="visible pl-4 m-2 rounded-full outline-none bg-white/35" value={searchLatitude} onChange={handleLatitudeChange}></input>
+            <li className="px-12 py-4 text-2xl font-bold text-white ">
+              <div className="pb-1 pl-2 m-2 border-b-2 border-black outline-none dark:border-white/50 roundred-full lg:flex lg:visible">
+                <input className='font-bold text-center text-white outline-none bg-white/0' value={searchLatitude} onChange={handleLatitudeChange} placeholder="Latitude..."></input>
+              </div>
             </li>
-            <li className="px-12 py-4 text-2xl font-bold text-white border-b-2 border-gray-400">
-              <h1 className="items-center font-semibold dark:text-white">Longitude</h1>
-              <input className="pl-4 m-2 rounded-full outline-none bg-white/35 " value={searchLongitude} onChange={handleLongitudeChange}></input>
+            <li className="px-12 py-4 text-2xl font-bold text-white ">
+              <div className="pb-1 pl-2 m-2 border-b-2 border-black outline-none dark:border-white/50 roundred-full lg:flex lg:visible">
+                <input className='font-bold text-center text-white outline-none bg-white/0' value={searchLongitude} onChange={handleLongitudeChange} placeholder="Longitude..."></input>
+              </div>
             </li>
-            <li className="flex items-center justify-center px-12 py-4 text-2xl font-bold text-white border-b-2 border-gray-400">
+            <li className="flex items-center justify-center px-12 py-4 text-2xl font-bold text-white ">
               <div
                 className="items-center p-2 font-extrabold cursor-pointer dark:text-white"
                 onClick={() => {
@@ -150,28 +161,6 @@ const Navbar = () => {
                 }}
               >
                 <RiSearchLine size={24} />
-              </div>
-            </li>
-            <li className="flex items-center justify-center px-12 py-4 text-2xl font-bold text-white border-b-2 border-gray-400">
-              <div
-                className="items-center p-2 font-extrabold cursor-pointer dark:text-white"
-                onClick={() => {
-                  fetchCurrentPosition();
-                  setNav(!nav);
-                }}
-              >
-                <RiGlobalLine size={24} />
-              </div>
-            </li>
-            <li className="flex items-center justify-center px-12 py-4 text-2xl font-bold text-white border-b-2 border-gray-400">
-              <div
-                className="items-center p-2 font-extrabold cursor-pointer dark:text-white"
-                onClick={() => {
-                  handleMap();
-                  setNav(!nav);
-                }}
-              >
-                <RiMapPin2Fill size={24} />
               </div>
             </li>
           </ul>
